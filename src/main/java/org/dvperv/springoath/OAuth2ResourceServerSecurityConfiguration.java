@@ -16,7 +16,6 @@ import org.springframework.security.web.SecurityFilterChain;
 public class OAuth2ResourceServerSecurityConfiguration {
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		// @formatter:off
 		http
 			.authorizeHttpRequests((authorize) -> authorize
 				.requestMatchers(HttpMethod.GET, "/message/**").hasRole("user")
@@ -28,7 +27,6 @@ public class OAuth2ResourceServerSecurityConfiguration {
 					.jwtAuthenticationConverter(jwtAuthenticationConverter())
 				)
 			);
-		// @formatter:on
 		return http.build();
 	}
 	private Converter<Jwt, ? extends AbstractAuthenticationToken> jwtAuthenticationConverter() {
