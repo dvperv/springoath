@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class OAuth2ResourceServerController {
-
 	@GetMapping("/")
 	public String index(@AuthenticationPrincipal Jwt jwt) {
 		return String.format("Hello, %s!", jwt.getSubject());
@@ -24,5 +23,4 @@ public class OAuth2ResourceServerController {
 	public String createMessage(@RequestBody String message) {
 		return String.format("Message was created. Content: %s", message);
 	}
-
 }
