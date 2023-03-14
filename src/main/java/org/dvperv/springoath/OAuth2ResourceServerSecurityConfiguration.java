@@ -22,6 +22,7 @@ public class OAuth2ResourceServerSecurityConfiguration {
 				.requestMatchers(HttpMethod.POST, "/message/**").hasRole("user")
 				.anyRequest().authenticated()
 			)
+			.csrf().disable()
 			.oauth2ResourceServer(httpSecurityOAuth2ResourceServerConfigurer -> httpSecurityOAuth2ResourceServerConfigurer
 				.jwt(jwtConfigurer -> jwtConfigurer
 					.jwtAuthenticationConverter(jwtAuthenticationConverter())
